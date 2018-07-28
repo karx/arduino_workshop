@@ -1,0 +1,23 @@
+
+N=3
+
+State
+Each state can be defined as an execution step in the chain.
+There are N number of StateTypes. 
+
+StateType.
+State can only be of one of the StateTypes. StateTypes are basically categories.
+Like PinState, MQTTPublishState,etc. 
+
+PinState
+- It takes 2 arguments
+1. One int - Pin number 
+2. One bool - On/Off
+
+TimeoutState
+- It takes 1 argument
+1. time in Seconds
+
+MQTTPublishState
+-It takes one argument
+1. Msg to publish on predefined topic ("kaaro/test" as of now)
