@@ -7,7 +7,7 @@
     class MQTTUtils
     {
         //  const char* mqtt_server = "192.168.1.3";
-        static constexpr  char* mqtt_server = "35.154.49.129"; //aws s2 dev
+        static constexpr  char* mqtt_server = "arduino_workshop.akriya.co.in"; //aws s2 dev
         //const char* mqtt_server = "iot.eclipse.org";
         
         public:

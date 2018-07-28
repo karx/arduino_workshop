@@ -13,14 +13,14 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
-int OutPins[6] = {D0,D1,D2,D3,D4,D7};
-int OutPinsLength = 6;
+int OutPins[6] = {D1,D2,D3};
+int OutPinsLength = 3;
 
 void parseAndExecutePayload(byte* payload,int len);
 int getValuefromByteString(byte *payload,int len);
 
 MQTTUtils mqttUtils;
-IR_RecvUtils irrUtils;
+// IR_RecvUtils irrUtils;
 TimeUtils timeUtils;
 
 int i=0;
@@ -35,7 +35,7 @@ void setup() {
     pinMode(OutPins[i], OUTPUT);
     digitalWrite(OutPins[i], HIGH);
   }
-  UtilManager::irrUtils->setupIR_recv();
+  // UtilManager::irrUtils->setupIR_recv();
   Serial.println("\n\t\tSETUP END");
 }
 
@@ -44,19 +44,5 @@ void loop() {
     UtilManager::mqttUtils->reconnect();
   }
   UtilManager::mqttUtils->client->loop();
-
-  int IRResultIndex = UtilManager::irrUtils->getDecode();
-  if (IRResultIndex != -1) 
-  {
-    Serial.println("GOT RESULT IN MAIN");
-    Serial.print("Result Index = ");
-    Serial.println(IRResultIndex);
-    Serial.println();
-    Serial.println();
-  }  
-  if(UtilManager::timeUtils->every5sec())
-  {
-    UtilManager::mqttUtils->publish("kaaro/test","Test Passed");
-  }
   // stateManager.runStateChain();
 }

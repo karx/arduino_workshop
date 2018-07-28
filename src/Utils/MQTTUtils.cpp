@@ -12,8 +12,9 @@ void callback(char* topic, byte* payload, unsigned int length)
     Serial.print(topic);
     Serial.print("\t");
     Serial.print((char*)payload);
+    
     // if MQTT comes a 0 turn off LED on D2
-    PayloadUtils::parseAndExecutePayload(payload,length);
+    // PayloadUtils::parseAndExecutePayload(payload,length);
 
 } //end callback
 
