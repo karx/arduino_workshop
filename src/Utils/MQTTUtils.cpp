@@ -8,14 +8,25 @@ MQTTUtils::MQTTUtils()
 
 void callback(char* topic, byte* payload, unsigned int length)
 {
-    Serial.print("Command from MQTT broker is : [");
-    Serial.print(topic);
-    Serial.print("\t");
-    Serial.print((char*)payload);
-    
-    // if MQTT comes a 0 turn off LED on D2
-    // PayloadUtils::parseAndExecutePayload(payload,length);
+    // Serial.print("Command from MQTT broker is : [");
+    // Serial.print(topic);
+    // Serial.print("\t");
+    Serial.println((char*)payload);
+    // if the number we get in payload matches One in our tambola ticket, Light up LED
 
+    //hack to get first 2 chars as Int
+    int payloadInt = (payload[0] - '0') * 10 + (payload[1] - '0');
+
+
+    Serial.println(payloadInt);
+    if(payloadInt == 45)
+        digitalWrite(D1,HIGH);
+    else if(payloadInt == 23)
+        digitalWrite(D2,HIGH);
+    else if(payloadInt == 56)
+        digitalWrite(D3,HIGH);
+    
+    
 } //end callback
 
 void MQTTUtils::reconnect() 

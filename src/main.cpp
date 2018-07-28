@@ -33,7 +33,7 @@ void setup() {
   for(int i=0;i<OutPinsLength;i++)
   {
     pinMode(OutPins[i], OUTPUT);
-    digitalWrite(OutPins[i], HIGH);
+    digitalWrite(OutPins[i], LOW);
   }
   // UtilManager::irrUtils->setupIR_recv();
   Serial.println("\n\t\tSETUP END");
