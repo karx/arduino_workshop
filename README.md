@@ -1,7 +1,11 @@
 # arduino_workshop
 
-This repo exposes a simple framework to build your own *Karta* device for any project.
-In this repo, we create a *Karta* device, competing in a game of Tambola! 
+This repository exposes a simple framework to build a *Karta* device for any project.
+
+Here, we create *Karta* device, competing in a game of Tambola!, listinng to a specific MQTT channel for the number announcements. Each time a number is hit, we light up an LED.
+
+
+
 Using the following stack
  - Device : ESP-12E 
  - Language : C++ (Arduino -_-)
