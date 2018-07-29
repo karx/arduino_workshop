@@ -8,8 +8,9 @@ Using the following stack
  - IDE : PlatformIO
 
 Useful links:
- -Install required drivers from https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
- -mqtt_server : arduino_workshop.akriya.co.in
- -Feedback form for live workshop: https://drive.google.com/open?id=1tRnBs257Xf1ZBjjCH0y53JM6jRX8RkFMLYeQqQAzACw
+ - Install required drivers from https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
+ - mqtt_server : arduino_workshop.akriya.co.in
+ - Feedback form for live workshop: https://drive.google.com/open?id=1tRnBs257Xf1ZBjjCH0y53JM6jRX8RkFMLYeQqQAzACw
+
 
 For any help/queries feel free to raise an issue or mail @ kartik.akriya.co.in
