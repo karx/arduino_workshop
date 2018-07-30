@@ -19,11 +19,11 @@ void callback(char* topic, byte* payload, unsigned int length)
 
 
     Serial.println(payloadInt);
-    if(payloadInt == 45)
+    if(payloadInt == 13)
         digitalWrite(D1,HIGH);
-    else if(payloadInt == 23)
+    else if(payloadInt == 15)
         digitalWrite(D2,HIGH);
-    else if(payloadInt == 56)
+    else if(payloadInt == 18)
         digitalWrite(D3,HIGH);
     
     
@@ -45,7 +45,7 @@ void MQTTUtils::reconnect()
         {
             Serial.println("connected");
             //once connected to MQTT broker, subscribe command if any
-            this->client->subscribe("kaaro/room");
+            this->client->subscribe("workshop/tambola");
         }
         else 
         {
