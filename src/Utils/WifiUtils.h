@@ -6,8 +6,8 @@
     class WifiUtils
     {
         
-        static constexpr  char* ssid = "kaaro-redmi";
-        static constexpr  char* password = "123456789";
+        static constexpr  char* ssid = "LPS Global Pool Wifi";
+        static constexpr  char* password = "lps@12345";
         // static constexpr  char* password = "9810110717";
         
         public:

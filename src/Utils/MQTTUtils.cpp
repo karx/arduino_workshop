@@ -45,7 +45,7 @@ void MQTTUtils::reconnect()
         {
             Serial.println("connected");
             //once connected to MQTT broker, subscribe command if any
-            this->client->subscribe("workshop/tambola");
+            this->client->subscribe("fitso/admin");
         }
         else 
         {

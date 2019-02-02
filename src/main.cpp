@@ -35,12 +35,12 @@ void setup()
   WifiUtils::setup_wifi();
   UtilManager::mqttUtils->setup();
   Serial.println("Test");
-  for (int i = 0; i < OutPinsLength; i++)
-  {
-    pinMode(OutPins[i], OUTPUT);
-    digitalWrite(OutPins[i], LOW);
-  }
-  dht.setup(17, DHTesp::DHT22); // Connect DHT sensor to GPIO 17
+  // for (int i = 0; i < OutPinsLength; i++)
+  // {
+  //   pinMode(OutPins[i], OUTPUT);
+  //   digitalWrite(OutPins[i], LOW);
+  // }
+  dht.setup(D1, DHTesp::DHT22); // Connect DHT sensor to GPIO 17
   // UtilManager::irrUtils->setupIR_recv();
   Serial.println("\n\t\tSETUP END");
 }
@@ -74,7 +74,10 @@ void loop()
     Serial.println(dht.computeHeatIndex(dht.toFahrenheit(temperature), humidity, true), 1);
     timeSinceLastRead = currentMillis;
 
-    UtilManager::mqttUtils->publish("fitso/in1/humidity", humidity );
-    UtilManager::mqttUtils->publish("fitso/in1/humidity", temperature );
+    char array[10], array2[10];
+    sprintf(array, "%f", humidity);
+    sprintf(array2, "%f", temperature);
+    UtilManager::mqttUtils->publish("fitso/in1/humidity", array );
+    UtilManager::mqttUtils->publish("fitso/in1/temperature", array2 );
   }
 }
