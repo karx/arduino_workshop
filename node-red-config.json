@@ -1,0 +1,127 @@
+[
+    {
+        "id": "7fd23c2.e7275c4",
+        "type": "tab",
+        "label": "Fitso MQTT to HTTP",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "75458c2f.df8874",
+        "type": "mqtt in",
+        "z": "7fd23c2.e7275c4",
+        "name": "Fitso - Humidity",
+        "topic": "fitso/in1/humidity",
+        "qos": "2",
+        "broker": "3d5752cf.98b24e",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "8de5059c.1979d8",
+                "b1861f48.2a8b1"
+            ]
+        ]
+    },
+    {
+        "id": "8de5059c.1979d8",
+        "type": "debug",
+        "z": "7fd23c2.e7275c4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 430,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "2d873f3f.a8ae1",
+        "type": "mqtt in",
+        "z": "7fd23c2.e7275c4",
+        "name": "Fitso - Temprature",
+        "topic": "fitso/in1/temperature",
+        "qos": "2",
+        "broker": "3d5752cf.98b24e",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "8de5059c.1979d8",
+                "d3705f66.1d27b"
+            ]
+        ]
+    },
+    {
+        "id": "b1861f48.2a8b1",
+        "type": "http request",
+        "z": "7fd23c2.e7275c4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "https://localhost:8080/fitso/humidity/{{payload}}",
+        "tls": "",
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "a734d93a.ff3158"
+            ]
+        ]
+    },
+    {
+        "id": "d3705f66.1d27b",
+        "type": "http request",
+        "z": "7fd23c2.e7275c4",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "url": "http://localhost:8080/fitso/temprature/{{payload}}",
+        "tls": "",
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "a734d93a.ff3158"
+            ]
+        ]
+    },
+    {
+        "id": "a734d93a.ff3158",
+        "type": "debug",
+        "z": "7fd23c2.e7275c4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3d5752cf.98b24e",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "akriyaMQ",
+        "broker": "api.akriya.co.in",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]
